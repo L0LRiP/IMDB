@@ -1,27 +1,34 @@
-import React from 'react'
-import { Routes,Route } from 'react-router-dom'
-import Movie from './Components/Movie'
-// import MovieDetails from './Components/MovieDetails'
-import MoviesType from './Components/MoviesType'
-import MoviesList from './Components/MoviesList'
-import Navbar from './Components/Navbar'
-import Card from './Components/Card'
-import CardSearch from './Components/CardSearch'
-import Footer from './Components/footer'
-const App = () => {
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <Navbar />
-      {/* <CardSearch data={data} /> */}
-      <Routes>
-        <Route exact path='/' element={<MoviesList />} />
-        <Route exact path='movie/:id' element={<Movie/>} />
-        <Route exact path='movies/:type' element={<MoviesType />} />
-        <Route exact path='movies/search/:search' element={<CardSearch />} />
-        <Route exact path='/*' element={<h1>Error Page</h1>} />
-      </Routes>
-      <Footer />
-    </div>
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
 
